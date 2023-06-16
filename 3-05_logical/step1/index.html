@@ -30,16 +30,17 @@
 <script>
 'use strict';
 
-const hour = new Date().getHours();
+let enemy = 100;
+let count = 0;
 
-if(hour >= 19 && hour < 21) {
-    window.alert('お弁当30%OFF!');
-} else if(hour === 9 || hour === 15) {
-    window.alert('お弁当1個買ったら1個おまけ！');
-} else {
-    window.alert('お弁当はいかがですか');
+window.alert('戦闘スタート！');
+while(enemy > 0){
+    const attack = Math.floor(Math.random() * 30) + 1
+    console.log('モンスターに' + attack + 'のダメージ！');
+    enemy = enemy - attack;
+    count += 1;
 }
-    
+console.log(count + '回でモンスターを倒した');
 </script>
 </body>
 </html>
