@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>3-05_logical</title>
+<title>3-04_comparison</title>
 <link href="../../_common/images/favicon.ico" rel="shortcut icon">
 <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
 <link href="../../_common/css/style.css" rel="stylesheet">
@@ -11,18 +11,14 @@
 <body>
 <header>
 <div class="container">
-<h1>時間で異なるメッセージを表示する</h1>
-<h2>2つ以上の条件式で1つの条件を作る</h2>
+<h1>数当てゲーム</h1>
+<h2>さまざまな比較演算子を使用する</h2>
 </div><!-- /.container -->
 </header>
 <main>
 <div class="container">
 <section>
-    <form action="#" id="from">
-        <input type="text" name="word">
-        <input type="submit" value="検索">
-    </form>
-    <p id="output"></p>
+    <p>最終アクセス日時:<span id="time"></span></p>
 </section>
 </div><!-- /.container -->
 </main>
@@ -34,11 +30,16 @@
 <script>
 'use strict';
 
-document.getElementById('from').onsubmit=function(){
-    event.preventDefault();
-    const search =document.getElementById('from').word.value;
-    document.getElementById('output').textContent = `「${search}」の検索中...`;
-}
+const now = new Date();
+const year = now.getFullYear();
+const month = now.getMonth();
+const date = now.getDate();
+const hour = now.getHours();
+const min = now.getMinutes();
+
+const output = `${year}/${month + 1}/${date} ${hour}:${min}`;
+document.getElementById('time').textContent = output;
+
 </script>
 </body>
 </html>
